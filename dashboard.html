@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Дашборд — Digital Twins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/dashboard.css">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <script defer src="assets/js/storage.js"></script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/ui.js"></script>
+  <script defer src="assets/js/charts.js"></script>
+  <script defer src="assets/js/pages/dashboard.page.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">DT</div>
+        <div class="brand__text">
+          <div class="brand__title">Digital Twins</div>
+          <div class="brand__subtitle">Дашборд телеметрії</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Головна</a>
+        <a class="nav__link" href="theory.html">Теорія</a>
+        <a class="nav__link" href="architecture.html">Архітектура</a>
+        <a class="nav__link" href="use-cases.html">Кейси</a>
+        <a class="nav__link is-active" href="dashboard.html">Дашборд</a>
+        <a class="nav__link" href="simulator.html">Симулятор</a>
+        <a class="nav__link" href="security.html">Безпека</a>
+        <a class="nav__link" href="about.html">Про проєкт</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="page-head">
+      <div>
+        <h1>Дашборд цифрового двійника</h1>
+        <p class="lead">
+          Тут відображається “живий” стан об’єкта на основі телеметрії. Дані беруться з LocalStorage,
+          які генерує <b>Симулятор</b>.
+        </p>
+      </div>
+      <div class="page-head__actions">
+        <a class="btn btn--ghost" href="simulator.html">Відкрити симулятор</a>
+        <button class="btn btn--danger" id="btnClear">Очистити дані</button>
+      </div>
+    </div>
+
+    <section class="grid grid--4">
+      <div class="kpi card">
+        <div class="kpi__label">Температура</div>
+        <div class="kpi__value" id="kpiTemp">—</div>
+        <div class="kpi__hint" id="kpiTempHint">—</div>
+      </div>
+
+      <div class="kpi card">
+        <div class="kpi__label">Вібрація</div>
+        <div class="kpi__value" id="kpiVib">—</div>
+        <div class="kpi__hint" id="kpiVibHint">—</div>
+      </div>
+
+      <div class="kpi card">
+        <div class="kpi__label">Health Index</div>
+        <div class="kpi__value" id="kpiHealth">—</div>
+        <div class="kpi__hint">0–100 (чим більше — тим краще)</div>
+      </div>
+
+      <div class="kpi card">
+        <div class="kpi__label">Алерти</div>
+        <div class="kpi__value" id="kpiAlerts">—</div>
+        <div class="kpi__hint">за останні 60 секунд</div>
+      </div>
+    </section>
+
+    <section class="grid grid--2">
+      <div class="card">
+        <h2>Графік: температура (°C)</h2>
+        <canvas id="chartTemp" height="120"></canvas>
+        <p class="note">
+          Використання: швидко бачимо тренд і “розгін”. Якщо температура росте — підозра на перегрів або тертя.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Графік: вібрація (мм/с)</h2>
+        <canvas id="chartVib" height="120"></canvas>
+        <p class="note">
+          Використання: вібрація часто показує знос підшипника/дисбаланс/розхитування.
+        </p>
+      </div>
+    </section>
+
+    <section class="grid grid--2">
+      <div class="card">
+        <h2>Графік: Health Index</h2>
+        <canvas id="chartHealth" height="120"></canvas>
+        <p class="note">
+          Це “інтегральний показник”: в демо він рахується простими правилами (не ML), але ідея та сама.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Події та алерти</h2>
+        <div class="events" id="events"></div>
+        <p class="note">
+          Алерт з’являється, коли значення переходить поріг. У реальному Digital Twin це йде в Slack/Email/SCADA.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Пояснення: як тут все зв’язано</h2>
+      <ol class="list">
+        <li><b>Симулятор</b> генерує телеметрію (температура/вібрація) → зберігає в LocalStorage.</li>
+        <li><b>Dashboard</b> читає історію точок → будує графіки (Chart.js).</li>
+        <li>Правила “Health Index” оцінюють ризик: якщо t°/вібрація росте → індекс падає.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Digital Twins Demo</div>
+      <div class="muted">Графіки: Chart.js, Дані: LocalStorage</div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Симулятор — Digital Twins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/simulator.css">
+
+  <script defer src="assets/js/storage.js"></script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/ui.js"></script>
+  <script defer src="assets/js/sim.js"></script>
+  <script defer src="assets/js/pages/simulator.page.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">DT</div>
+        <div class="brand__text">
+          <div class="brand__title">Digital Twins</div>
+          <div class="brand__subtitle">Симулятор сенсорів</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Головна</a>
+        <a class="nav__link" href="theory.html">Теорія</a>
+        <a class="nav__link" href="architecture.html">Архітектура</a>
+        <a class="nav__link" href="use-cases.html">Кейси</a>
+        <a class="nav__link" href="dashboard.html">Дашборд</a>
+        <a class="nav__link is-active" href="simulator.html">Симулятор</a>
+        <a class="nav__link" href="security.html">Безпека</a>
+        <a class="nav__link" href="about.html">Про проєкт</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="page-head">
+      <div>
+        <h1>Симулятор: генеруємо телеметрію</h1>
+        <p class="lead">
+          Це імітація того, як реальні сенсори шлють дані (IoT). Тут ми створюємо точки телеметрії:
+          <b>temperature</b> і <b>vibration</b>. Вони зберігаються у браузері і відображаються на “Дашборді”.
+        </p>
+      </div>
+      <div class="page-head__actions">
+        <a class="btn btn--ghost" href="dashboard.html">Перейти в дашборд</a>
+      </div>
+    </div>
+
+    <section class="grid grid--2">
+      <div class="card">
+        <h2>Керування симуляцією</h2>
+
+        <div class="form-grid">
+          <label class="field">
+            <span>Режим</span>
+            <select id="mode">
+              <option value="normal">Нормальний</option>
+              <option value="overheat">Перегрів</option>
+              <option value="bearing">Знос підшипника</option>
+              <option value="shock">Різкий удар (спайк)</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Частота (сек на точку)</span>
+            <input id="interval" type="number" min="0.5" step="0.5" value="1" />
+          </label>
+
+          <label class="field">
+            <span>Тривалість (сек)</span>
+            <input id="duration" type="number" min="10" step="10" value="60" />
+          </label>
+
+          <label class="field">
+            <span>Шум (0..1)</span>
+            <input id="noise" type="number" min="0" max="1" step="0.1" value="0.3" />
+          </label>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn--primary" id="start">Старт</button>
+          <button class="btn btn--ghost" id="stop" disabled>Стоп</button>
+          <button class="btn btn--danger" id="reset">Скинути дані</button>
+        </div>
+
+        <div class="note">
+          Після запуску відкрий <a class="link" href="dashboard.html">Дашборд</a> — там побачиш графіки.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Поточний стан</h2>
+        <div class="live">
+          <div class="live__item">
+            <div class="live__label">Температура</div>
+            <div class="live__value" id="liveTemp">—</div>
+          </div>
+          <div class="live__item">
+            <div class="live__label">Вібрація</div>
+            <div class="live__value" id="liveVib">—</div>
+          </div>
+          <div class="live__item">
+            <div class="live__label">Статус</div>
+            <div class="live__value" id="liveStatus">—</div>
+          </div>
+        </div>
+
+        <figure class="media">
+          <img
+            src="https://media.istockphoto.com/id/1372577388/ru/%D1%84%D0%BE%D1%82%D0%BE/%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B5-%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0-%D0%BD%D0%B0-%D1%82%D0%B5%D0%BC%D0%BD%D0%BE%D0%BC-%D1%84%D0%BE%D0%BD%D0%B5-%D0%BA%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%86%D0%B8%D1%8F-%D1%83%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-%D0%B8-%D1%83%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D1%8B%D1%85.jpg?s=612x612&w=0&k=20&c=zorjdMtT1PCLl5DbPWMYiuwtSzUVVBpSWVZOPyBzIbQ="
+            alt="Сенсорна електроніка"
+            loading="lazy"
+          />
+          <figcaption>Сенсори → дані → цифровий двійник.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Як це відповідає реальному Digital Twin</h2>
+      <ol class="list">
+        <li><b>У реальності</b>: сенсор надсилає пакети телеметрії (MQTT/HTTP).</li>
+        <li><b>У нас</b>: JS-симулятор генерує телеметрію з різними режимами (перегрів/знос).</li>
+        <li><b>У реальності</b>: дані йдуть в TimeSeries DB + аналітику.</li>
+        <li><b>У нас</b>: зберігаємо дані в LocalStorage, а дашборд читає і будує графіки.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Digital Twins Demo</div>
+      <div class="muted">Симулятор — навчальна імітація IoT</div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Теорія — Digital Twins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/theory.css">
+
+  <script defer src="assets/js/ui.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">DT</div>
+        <div class="brand__text">
+          <div class="brand__title">Digital Twins</div>
+          <div class="brand__subtitle">Теорія та поняття</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Головна</a>
+        <a class="nav__link is-active" href="theory.html">Теорія</a>
+        <a class="nav__link" href="architecture.html">Архітектура</a>
+        <a class="nav__link" href="use-cases.html">Кейси</a>
+        <a class="nav__link" href="dashboard.html">Дашборд</a>
+        <a class="nav__link" href="simulator.html">Симулятор</a>
+        <a class="nav__link" href="security.html">Безпека</a>
+        <a class="nav__link" href="about.html">Про проєкт</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Теорія: що таке Digital Twin</h1>
+
+    <div class="grid grid--2">
+      <article class="card">
+        <h2>Визначення</h2>
+        <p>
+          <b>Digital Twin</b> — це цифровий двійник фізичного об’єкта або процесу, який
+          <b>постійно синхронізується</b> з реальністю через дані (сенсори, журнали, телеметрія).
+        </p>
+        <p>
+          Важлива частина: двійник не просто “3D-модель”, а <b>робоча модель поведінки</b>:
+          вона дозволяє оцінити стан, знайти аномалію, зробити прогноз і порахувати сценарії.
+        </p>
+      </article>
+
+      <figure class="media card">
+        <img
+          src="https://images.unsplash.com/photo-1554475901-4538ddfbccc2?auto=format&fit=crop&w=1400&q=60"
+          alt="Аналітика даних і графіки"
+          loading="lazy"
+        />
+        <figcaption>Digital Twin завжди опирається на дані та аналітику.</figcaption>
+      </figure>
+    </div>
+
+    <section class="card">
+      <h2>Digital Model vs Simulation vs Digital Twin</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Поняття</th>
+              <th>Що це</th>
+              <th>Чого не вистачає</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Digital Model</b></td>
+              <td>Статична цифрова модель (наприклад, CAD/3D, опис параметрів)</td>
+              <td>Немає потоку даних і “живого” оновлення</td>
+            </tr>
+            <tr>
+              <td><b>Simulation</b></td>
+              <td>Обчислювальна симуляція поведінки системи (математика/фізика)</td>
+              <td>Може не бути зв’язку з реальністю в реальному часі</td>
+            </tr>
+            <tr>
+              <td><b>Digital Twin</b></td>
+              <td>Модель + дані + синхронізація + рішення (прогноз/оптимізація/алерти)</td>
+              <td>Це найповніший підхід (і найдорожчий в реалізації)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="grid grid--3">
+      <article class="card">
+        <h3>Типи двійників</h3>
+        <ul class="list">
+          <li><b>Component Twin</b> — один вузол (датчик, мотор)</li>
+          <li><b>Asset Twin</b> — пристрій/станок</li>
+          <li><b>System Twin</b> — лінія/цех/будівля</li>
+          <li><b>Process Twin</b> — процес (логістика, операції)</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Які дані використовують</h3>
+        <ul class="list">
+          <li>телеметрія сенсорів (t°, вібрація, струм)</li>
+          <li>логи обладнання / події</li>
+          <li>історичні дані ремонту</li>
+          <li>довідники / технічні характеристики</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Що дає бізнесу/системі</h3>
+        <ul class="list">
+          <li>прогноз відмов (Predictive Maintenance)</li>
+          <li>менше простоїв</li>
+          <li>оптимізація енергії</li>
+          <li>тест “what-if” без ризику</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="note">
+      Далі: на сторінці <a class="link" href="architecture.html">Архітектура</a> — як це реалізують технічно (сенсори → стрім → БД → модель → дашборд).
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Digital Twins Demo</div>
+      <div class="muted">Теорія + приклади, без серверної частини (для лаби)</div>
+    </div>
+  </footer>
+</body>
+</html>

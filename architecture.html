@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Архітектура — Digital Twins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/architecture.css">
+
+  <script defer src="assets/js/ui.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">DT</div>
+        <div class="brand__text">
+          <div class="brand__title">Digital Twins</div>
+          <div class="brand__subtitle">Архітектура та потоки даних</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Головна</a>
+        <a class="nav__link" href="theory.html">Теорія</a>
+        <a class="nav__link is-active" href="architecture.html">Архітектура</a>
+        <a class="nav__link" href="use-cases.html">Кейси</a>
+        <a class="nav__link" href="dashboard.html">Дашборд</a>
+        <a class="nav__link" href="simulator.html">Симулятор</a>
+        <a class="nav__link" href="security.html">Безпека</a>
+        <a class="nav__link" href="about.html">Про проєкт</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Архітектура Digital Twin: що куди підключають</h1>
+
+    <section class="grid grid--2">
+      <article class="card">
+        <h2>1) Сенсори та протоколи</h2>
+        <p>
+          У реальному світі дані приходять із PLC/мікроконтролерів (Embedded), модулів IoT, датчиків.
+          Типові протоколи:
+        </p>
+        <ul class="list">
+          <li><b>MQTT</b> — легкий publish/subscribe для IoT</li>
+          <li><b>HTTP/REST</b> — прості API для відправки телеметрії</li>
+          <li><b>OPC UA</b> — промисловий стандарт для автоматизації</li>
+          <li><b>WebSocket</b> — стрім у веб-додаток/дашборд</li>
+        </ul>
+      </article>
+
+      <figure class="media card">
+        <img
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=60"
+          alt="IoT сенсори та електроніка"
+          loading="lazy"
+        />
+        <figcaption>Сенсори формують телеметрію: t°, вібрація, струм, тиск тощо.</figcaption>
+      </figure>
+    </section>
+
+    <section class="card">
+      <h2>2) Data Pipeline (потік даних)</h2>
+      <p>
+        Сирові дані часто “шумні”, тому проходять етапи:
+        <b>валідація → очистка → агрегація → збереження</b>.
+        Далі дані використовують і для <b>онлайн моніторингу</b>, і для <b>навчання моделей</b> (ML).
+      </p>
+
+      <div class="pill-row">
+        <span class="pill">Валідація</span>
+        <span class="pill">Фільтрація шуму</span>
+        <span class="pill">Агрегація (1с/10с/1хв)</span>
+        <span class="pill">Зберігання</span>
+        <span class="pill">Аналітика</span>
+      </div>
+    </section>
+
+    <section class="grid grid--2">
+      <article class="card">
+        <h2>3) Модель цифрового двійника</h2>
+        <p>Варіанти моделі (часто комбінують):</p>
+        <ul class="list">
+          <li><b>Physics-based</b>: формули, фізика, параметри (точно, але складно)</li>
+          <li><b>Data-driven (ML)</b>: вчимо модель на історії даних</li>
+          <li><b>Hybrid</b>: фізика + ML корекція</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>4) Дашборд і рішення</h2>
+        <p>
+          Інтерфейс показує стан, тренди, аномалії, прогнози, алерти.
+          У нашому демо: <b>Dashboard</b> будує графіки з “телеметрії”, яку генерує <b>Sim</b>.
+        </p>
+        <div class="note">
+          Спробуй: <a class="link" href="simulator.html">Симулятор</a> → потім <a class="link" href="dashboard.html">Дашборд</a>.
+        </div>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Мінімальний “стек” (для розуміння)</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Рівень</th>
+              <th>Що там</th>
+              <th>Приклади</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Edge</b></td>
+              <td>сенсори/Embedded, збір даних</td>
+              <td>ESP32, PLC, Raspberry Pi</td>
+            </tr>
+            <tr>
+              <td><b>Ingest</b></td>
+              <td>прийом телеметрії</td>
+              <td>MQTT broker, REST API</td>
+            </tr>
+            <tr>
+              <td><b>Storage</b></td>
+              <td>зберігання історії</td>
+              <td>Time-series DB, SQL</td>
+            </tr>
+            <tr>
+              <td><b>Model</b></td>
+              <td>аналітика/ML/симуляція</td>
+              <td>Python, ML, правила</td>
+            </tr>
+            <tr>
+              <td><b>Apps</b></td>
+              <td>дашборд, алерти</td>
+              <td>Web UI, мобільний</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Digital Twins Demo</div>
+      <div class="muted">Архітектура показана спрощено для навчання</div>
+    </div>
+  </footer>
+</body>
+</html>

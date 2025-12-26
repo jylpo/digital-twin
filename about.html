@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Про проєкт — Digital Twins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/about.css">
+
+  <script defer src="assets/js/ui.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">DT</div>
+        <div class="brand__text">
+          <div class="brand__title">Digital Twins</div>
+          <div class="brand__subtitle">Про проєкт</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Головна</a>
+        <a class="nav__link" href="theory.html">Теорія</a>
+        <a class="nav__link" href="architecture.html">Архітектура</a>
+        <a class="nav__link" href="use-cases.html">Кейси</a>
+        <a class="nav__link" href="dashboard.html">Дашборд</a>
+        <a class="nav__link" href="simulator.html">Симулятор</a>
+        <a class="nav__link" href="security.html">Безпека</a>
+        <a class="nav__link is-active" href="about.html">Про проєкт</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Про сайт і як ним користуватись</h1>
+
+    <section class="card">
+      <h2>Що це за проєкт</h2>
+      <p>
+        Це навчальний сайт, який пояснює концепцію <b>Digital Twins</b> та показує робочий приклад:
+        <b>симулятор сенсорів</b> → <b>збереження телеметрії</b> → <b>дашборд з графіками</b>.
+      </p>
+    </section>
+
+    <section class="grid grid--2">
+      <article class="card">
+        <h2>Як перевірити демо</h2>
+        <ol class="list">
+          <li>Відкрий <b>Симулятор</b> і натисни “Старт”.</li>
+          <li>Постав режим “Перегрів” або “Знос підшипника”.</li>
+          <li>Перейди на <b>Дашборд</b> — побачиш графіки й алерти.</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h2>Що можна покращити</h2>
+        <ul class="list">
+          <li>замість LocalStorage — справжній бекенд (REST/MQTT)</li>
+          <li>реальна time-series DB (InfluxDB, Timescale)</li>
+          <li>ML-модель прогнозу (Python)</li>
+          <li>карта/3D-візуалізація об’єкта</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Примітка про зображення</h2>
+      <p>
+        Всі фото підключені через URL (Unsplash), тобто <b>нічого не треба качати</b>.
+        Якщо в універі потрібно без інтернету — скажи, перероблю на локальні картинки.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Digital Twins Demo</div>
+      <div class="muted">Версія: статичний сайт (HTML/CSS/JS)</div>
+    </div>
+  </footer>
+</body>
+</html>

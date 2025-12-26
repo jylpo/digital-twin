@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Digital Twins — Цифрові двійники</title>
+  <meta name="description" content="Освітній сайт про Digital Twins: архітектура, застосування, дашборд, симулятор та безпека." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+
+  <script defer src="assets/js/storage.js"></script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/ui.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#content">Перейти до контенту</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">DT</div>
+        <div class="brand__text">
+          <div class="brand__title">Digital Twins</div>
+          <div class="brand__subtitle">Цифрові двійники реальних систем</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link is-active" href="index.html">Головна</a>
+        <a class="nav__link" href="theory.html">Теорія</a>
+        <a class="nav__link" href="architecture.html">Архітектура</a>
+        <a class="nav__link" href="use-cases.html">Кейси</a>
+        <a class="nav__link" href="dashboard.html">Дашборд</a>
+        <a class="nav__link" href="simulator.html">Симулятор</a>
+        <a class="nav__link" href="security.html">Безпека</a>
+        <a class="nav__link" href="about.html">Про проєкт</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <h1>Цифрові двійники (Digital Twins)</h1>
+          <p class="lead">
+            Digital Twin — це <b>цифрова модель</b> фізичного об’єкта або процесу, яка
+            <b>оновлюється даними з сенсорів</b> і дозволяє аналізувати стан, прогнозувати поломки
+            та тестувати сценарії без ризику для реального світу.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="theory.html">Почати з теорії</a>
+            <a class="btn btn--ghost" href="simulator.html">Запустити симулятор</a>
+          </div>
+
+          <div class="mini-cards">
+            <div class="mini-card">
+              <div class="mini-card__kpi" id="kpiObjects">—</div>
+              <div class="mini-card__label">Об’єктів у демо</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card__kpi" id="kpiSignals">—</div>
+              <div class="mini-card__label">Сенсорних сигналів</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card__kpi" id="kpiTick">—</div>
+              <div class="mini-card__label">Оновлення (сек)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <figure class="media">
+            <img
+              src="https://gvp.com.ua/sites/default/files/article/article-text-images/vliyanie-robotov-na-proizvodstvo-pishchevyh-produktov-innovacii-v-avtomatizacii-4.jpg"
+              alt="Промислове обладнання та цифрові технології"
+              loading="lazy"
+            />
+            <figcaption>
+              Приклад: виробництво + датчики + аналітика → цифровий двійник.
+            </figcaption>
+          </figure>
+
+          <div class="callout">
+            <div class="callout__title">Ключова ідея</div>
+            <div class="callout__text">
+              <b>Фізичний об’єкт</b> → сенсори → дані → <b>цифрова модель</b> → прогнози / оптимізація → рішення.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <h2>Як “живе” Digital Twin</h2>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>1) Дані (IoT/сенсори)</h3>
+          <p>
+            Температура, вібрація, тиск, струм, GPS, швидкість… Сенсори знімають телеметрію та відправляють її в систему.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>2) Модель (Twin)</h3>
+          <p>
+            Математична/фізична/ML-модель, яка відтворює поведінку об’єкта та оновлюється в реальному часі.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>3) Рішення (Decision)</h3>
+          <p>
+            Дашборди, алерти, прогноз зносу, оптимізація ресурсів, “what-if” симуляції.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section">
+      <h2>Схема в 1 картинці</h2>
+      <div class="card diagram">
+        <!-- Inline SVG diagram -->
+        <svg viewBox="0 0 1000 260" role="img" aria-label="Схема Digital Twin">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="currentColor" stop-opacity="0.12"/>
+              <stop offset="1" stop-color="currentColor" stop-opacity="0.03"/>
+            </linearGradient>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
+              <path d="M0,0 L10,5 L0,10 Z" fill="currentColor" opacity="0.6"></path>
+            </marker>
+          </defs>
+
+          <rect x="20" y="40" width="250" height="160" rx="18" fill="url(#g)" stroke="currentColor" opacity="0.6"/>
+          <text x="145" y="78" text-anchor="middle" font-size="20" fill="currentColor">Фізичний об’єкт</text>
+          <text x="145" y="110" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.85">стан / процес</text>
+          <text x="145" y="140" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.85">мотор, робот, будівля</text>
+          <text x="145" y="170" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.85">пацієнт, транспорт</text>
+
+          <rect x="320" y="40" width="330" height="160" rx="18" fill="url(#g)" stroke="currentColor" opacity="0.6"/>
+          <text x="485" y="78" text-anchor="middle" font-size="20" fill="currentColor">Дані + Пайплайн</text>
+          <text x="485" y="110" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.85">сенсори → MQTT/HTTP → БД</text>
+          <text x="485" y="140" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.85">очистка → агрегація → стрім</text>
+          <text x="485" y="170" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.85">API для застосунків</text>
+
+          <rect x="700" y="40" width="280" height="160" rx="18" fill="url(#g)" stroke="currentColor" opacity="0.6"/>
+          <text x="840" y="78" text-anchor="middle" font-size="20" fill="currentColor">Digital Twin</text>
+          <text x="840" y="110" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.85">модель / симуляція</text>
+          <text x="840" y="140" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.85">прогноз / аномалії</text>
+          <text x="840" y="170" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.85">дашборди / алерти</text>
+
+          <path d="M270 120 L320 120" stroke="currentColor" stroke-width="3" opacity="0.6" marker-end="url(#arrow)"/>
+          <path d="M650 120 L700 120" stroke="currentColor" stroke-width="3" opacity="0.6" marker-end="url(#arrow)"/>
+          <path d="M840 200 C840 245,145 245,145 200" stroke="currentColor" stroke-width="2" opacity="0.35" fill="none" marker-end="url(#arrow)"/>
+
+          <text x="500" y="235" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.75">
+            Зворотній зв’язок: рекомендації → зміни в керуванні → нові дані
+          </text>
+        </svg>
+      </div>
+
+      <p class="note">
+        У цьому проєкті ми симулюємо сенсори (сторінка “Симулятор”), зберігаємо “телеметрію” у LocalStorage,
+        а “Дашборд” читає ці дані й будує графіки.
+      </p>
+    </section>
+
+    <section class="container section">
+      <h2>Куди далі?</h2>
+      <div class="grid grid--2">
+        <article class="card">
+          <h3>Теорія + терміни</h3>
+          <p>Різниця між симуляцією, цифровою моделлю і справжнім digital twin; типи двійників.</p>
+          <a class="link" href="theory.html">Відкрити “Теорія” →</a>
+        </article>
+        <article class="card">
+          <h3>Дашборд і графіки</h3>
+          <p>Графіки телеметрії (температура/вібрація), індекс здоров’я, події та алерти.</p>
+          <a class="link" href="dashboard.html">Відкрити “Дашборд” →</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Digital Twins Demo (освітній проєкт)</div>
+      <div class="muted">Зображення підтягуються з Unsplash через URL (без завантаження файлів)</div>
+    </div>
+  </footer>
+</body>
+</html>

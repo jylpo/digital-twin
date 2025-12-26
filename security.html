@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Безпека — Digital Twins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/security.css">
+
+  <script defer src="assets/js/ui.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">DT</div>
+        <div class="brand__text">
+          <div class="brand__title">Digital Twins</div>
+          <div class="brand__subtitle">Безпека та ризики</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Головна</a>
+        <a class="nav__link" href="theory.html">Теорія</a>
+        <a class="nav__link" href="architecture.html">Архітектура</a>
+        <a class="nav__link" href="use-cases.html">Кейси</a>
+        <a class="nav__link" href="dashboard.html">Дашборд</a>
+        <a class="nav__link" href="simulator.html">Симулятор</a>
+        <a class="nav__link is-active" href="security.html">Безпека</a>
+        <a class="nav__link" href="about.html">Про проєкт</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Безпека Digital Twins: чому це критично</h1>
+
+    <section class="grid grid--2">
+      <article class="card">
+        <h2>Чому ризики високі</h2>
+        <p>
+          Digital Twin часто пов’язаний з <b>реальним керуванням</b> (виробництво, енергетика, транспорт).
+          Якщо підмінити дані або отримати доступ до керування — наслідки можуть бути фізичними.
+        </p>
+        <ul class="list">
+          <li>підміна телеметрії → неправильні рішення</li>
+          <li>злам API → доступ до об’єкта/процесу</li>
+          <li>витік даних → комерційні та персональні ризики</li>
+        </ul>
+      </article>
+
+      <figure class="media card">
+        <img
+          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=60"
+          alt="Кібербезпека"
+          loading="lazy"
+        />
+        <figcaption>Безпека — обов’язкова частина IoT/Industrial систем.</figcaption>
+      </figure>
+    </section>
+
+    <section class="card">
+      <h2>Типовий “мінімум” захисту</h2>
+      <div class="grid grid--3">
+        <div class="mini-card">
+          <div class="mini-card__kpi">TLS</div>
+          <div class="mini-card__label">шифрування трафіку</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card__kpi">AuthN/Z</div>
+          <div class="mini-card__label">автентифікація / доступ</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card__kpi">Logs</div>
+          <div class="mini-card__label">аудит і моніторинг</div>
+        </div>
+      </div>
+
+      <ol class="list">
+        <li><b>Захист каналу</b>: TLS для MQTT/HTTP.</li>
+        <li><b>Контроль доступу</b>: токени, ролі, принцип мінімальних прав.</li>
+        <li><b>Валідація даних</b>: щоб “сміттєві” або злі дані не ламали модель.</li>
+        <li><b>Сегментація мережі</b>: відділяти OT (виробництво) від IT.</li>
+        <li><b>Алерти</b>: якщо дані аномальні або різко змінилися.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>У нашому демо</h2>
+      <p>
+        Ми не підключаємо реальні сенсори — лише імітація в браузері. Але логіка та сама:
+        <b>дані → модель/правила → рішення</b>. В реальному проєкті цей ланцюг треба захищати.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Digital Twins Demo</div>
+      <div class="muted">Безпека — ключова частина digital twin</div>
+    </div>
+  </footer>
+</body>
+</html>
+<!doctype html>

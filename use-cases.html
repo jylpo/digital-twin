@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Кейси — Digital Twins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/use-cases.css">
+
+  <script defer src="assets/js/ui.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">DT</div>
+        <div class="brand__text">
+          <div class="brand__title">Digital Twins</div>
+          <div class="brand__subtitle">Практичні застосування</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Головна</a>
+        <a class="nav__link" href="theory.html">Теорія</a>
+        <a class="nav__link" href="architecture.html">Архітектура</a>
+        <a class="nav__link is-active" href="use-cases.html">Кейси</a>
+        <a class="nav__link" href="dashboard.html">Дашборд</a>
+        <a class="nav__link" href="simulator.html">Симулятор</a>
+        <a class="nav__link" href="security.html">Безпека</a>
+        <a class="nav__link" href="about.html">Про проєкт</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Де використовують цифрові двійники</h1>
+
+    <section class="grid grid--3">
+      <article class="card case">
+        <img class="case__img" src="https://konsort.com.ua/wp-content/uploads/2021/02/sistema-monitoringa-oborudovaniya.jpg" alt="Виробництво" loading="lazy">
+        <h2>Промисловість</h2>
+        <p>
+          Моніторинг станків, прогноз відмов, оптимізація виробничих ліній.
+          Двійник знає “норму” і помічає відхилення.
+        </p>
+      </article>
+
+      <article class="card case">
+        <img class="case__img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=60" alt="Автомобілі" loading="lazy">
+        <h2>Авто</h2>
+        <p>
+          Двійник двигуна/батареї/гальм: оцінка зносу, прогноз сервісу,
+          тест сценаріїв керування.
+        </p>
+      </article>
+
+      <article class="card case">
+        <img class="case__img" src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1200&q=60" alt="Медицина" loading="lazy">
+        <h2>Медицина</h2>
+        <p>
+          Моделі органів, протезів, реабілітація. Обережно: потрібні дані і строгі вимоги безпеки.
+        </p>
+      </article>
+
+      <article class="card case">
+        <img class="case__img" src="https://ua-energy.org/system/posts/covers/000/018/354/original/main-compressed.jpg?1752677329" alt="Енергетика" loading="lazy">
+        <h2>Енергетика</h2>
+        <p>
+          Турбіни, підстанції, мережі: баланс навантажень, прогноз аварій, оптимізація втрат.
+        </p>
+      </article>
+
+      <article class="card case">
+        <img class="case__img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=60" alt="Робототехніка" loading="lazy">
+        <h2>Робототехніка</h2>
+        <p>
+          Двійник робота = тест траєкторій та алгоритмів до реального запуску (дешевше і безпечніше).
+        </p>
+      </article>
+
+      <article class="card case">
+        <img class="case__img" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60" alt="Міста та будівлі" loading="lazy">
+        <h2>Smart City / Будівлі</h2>
+        <p>
+          Вентиляція, енерговитрати, комфорт. Двійник будівлі допомагає “налаштувати” системи.
+        </p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Що в кожному кейсі спільного</h2>
+      <ol class="list">
+        <li><b>Є фізичний об’єкт</b> (станок, авто, будівля…)</li>
+        <li><b>Є дані</b> (сенсори/логи/історія)</li>
+        <li><b>Є модель</b> (фізика або ML)</li>
+        <li><b>Є рішення</b> (дашборд, алерти, оптимізація)</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Digital Twins Demo</div>
+      <div class="muted">Кейси показані як приклади</div>
+    </div>
+  </footer>
+</body>
+</html>
