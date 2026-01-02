@@ -1,0 +1,25 @@
+.kpi{
+  padding: 14px;
+}
+.kpi__label{ color: var(--muted); }
+.kpi__value{ font-size: 1.8rem; font-weight: 900; margin: 6px 0; }
+.kpi__hint{ color: var(--muted); font-size: .9rem; }
+
+.events{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 280px;
+  overflow:auto;
+  padding-right: 4px;
+}
+.event{
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.03);
+}
+.event--warn{ border-color: rgba(251,113,133,.32); background: rgba(251,113,133,.08); }
+.event__time{ font-size: .85rem; color: var(--muted); }
+.event__title{ font-weight: 700; margin-top: 4px; }
+.event__desc{ color: var(--muted); margin-top: 4px; }
